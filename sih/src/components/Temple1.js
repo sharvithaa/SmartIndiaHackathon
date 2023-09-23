@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectCards } from 'swiper/modules';
 import 'swiper/css';
@@ -10,8 +10,13 @@ import Deepam from '../img/copy-of-deepavali-sweets-snacks-(3)_5.png';
 import Madurai from '../img/Untitled_design___2023_03_30T003857_515.webp';
 import Jallikattu from '../img/jallikattu-image.jpg';
 import  Kolu from '../img/6e1fa10e-49ce-43d7-9dc6-0f3ba572315b.jpg';
-const temple=()=>
-{
+import Music1 from './music';
+import {Link} from 'react-router-dom';
+const Temple1 = ({ showAbout, setShowAbout }) => {
+    const handleButtonClick = () => {
+      setShowAbout(true);
+    };
+
     return(
         <div >
             <div className="m-4">
@@ -29,27 +34,11 @@ const temple=()=>
       className="mySwiper"
       navigation
       onSlideChange={() => console.log('slide change')}>
-      <SwiperSlide>
-        <div className="rounded shadow-2xl shadow-blue-300 ">
-        <a href="#" className="no-underline"><img  className="w-2/3" src={Pongal}></img></a>
-        <div className="pl-2">
-            <h1 className="font-bold text-xl">Pongal</h1>
-            <h1 className="text-gray-700 text-base mb-1 p-2">Jan 2024</h1>
-        </div>
-        </div>
-      </SwiperSlide>
+         
       <SwiperSlide>
         <div className="rounded shadow-xl shadow-gray-400 ">
-          <a href="#" className="no-underline"><img  className="w-2/3" src={Dance}></img></a>
-          <div className="pl-2">
-            <h1 className="font-bold text-xl">Natyanjali Dance Festival</h1>
-            <h1 className="text-gray-700 text-base p-2">31 Jan 2024-29 Feb 2024</h1>
-          </div> 
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="rounded shadow-xl shadow-gray-400 ">
-      <img  className="w-2/3" src={Music} w-16 h-16></img>
+        <button onClick={handleButtonClick}><img  className="w-2/3" src={Music} w-16 h-16></img></button>
+        {showAbout && <Music1/>}
         <div className="pl-2">
             <h1 className="font-bold text-xl">Thiruvaiyaru Festival</h1>
             <h1 className="text-gray-700 text-base p-2">Jan 2024</h1>
@@ -91,17 +80,29 @@ const temple=()=>
         </div>
         </div>
         </SwiperSlide>
+        <SwiperSlide>
+        <div className="rounded shadow-xl shadow-gray-400 ">
+          <a href="#" className="no-underline"><img  className="w-2/3" src={Dance}></img></a>
+          <div className="pl-2">
+            <h1 className="font-bold text-xl">Natyanjali Dance Festival</h1>
+            <h1 className="text-gray-700 text-base p-2">31 Jan 2024-29 Feb 2024</h1>
+          </div> 
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="rounded shadow-2xl shadow-blue-300 ">
+        <a href="#" className="no-underline"><img  className="w-2/3" src={Pongal}></img></a>
+        <div className="pl-2">
+            <h1 className="font-bold text-xl">Pongal</h1>
+            <h1 className="text-gray-700 text-base mb-1 p-2">Jan 2024</h1>
+        </div>
+        </div>
+      </SwiperSlide>
      </Swiper>
             </div>
-          <div className="pongal">
-            <div >
-              <img src="https://www.tamilnadutourism.tn.gov.in/img/pages/medium-desktop/pongal-festival-1655203568_081076b873773d2d1b1a.webp" className=""></img>
-
-            </div>
-          </div>
-
+         
         </div>
     )
 };
 
-export default temple;
+export default Temple1;
